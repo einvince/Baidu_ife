@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    请输入北京今天空气质量：
+    <input type="text" id="air">
+    <button type="button" id="button">确认填写</button>
+    <br>
+    您输入的值是:<span id="inputvalue"></span>
+
+    <script>
+    var input = document.getElementById('air');
+    var button = document.getElementById('button');
+    var display = document.getElementById('inputvalue');
+
+    function updateDisplay(){
+      display.innerText  = parseFloat(input.value);
+    }
+
+    button.onclick = updateDisplay;
+
+    input.onkeyup = function(evt){
+      if (evt.keyCode == 13 ){
+        updateDisplay();
+      }
+    }
+    </script>
+
+  </body>
+</html>

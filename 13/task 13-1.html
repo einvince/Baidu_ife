@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    请输入北京今天空气质量：
+    <label>请输入北京今天空气质量：
+    <input id="air-input" type="text"></label>
+    <button id="button">确认填写</button>
+    <div>您输入的值是：<span id="display">尚无录入</span></div>
+    <script>
+
+    var $ = function (id){
+      return document.getElementById(id)
+    }
+
+    var handler = function (){
+      var num = parseInt($("air-input").value);
+      if (!isNaN(num) && (num>=0) && (num<=1000) ){
+        $("display").innerHTML=num;
+
+      }
+      else{
+        alert($("air-input").value + "不是有效的AQI数值，请重新输入0-1000的有效整数")
+      }
+    }
+
+    var keyenter = function(event){
+      if (event.keyCode==13){
+        handler();
+      }
+    }
+    $("button").addEventListener("click",handler);
+    $("air-input").addEventListener("keyup",function(){keyenter(event)})
+
+
+
+    // $("button").onclick = function(){
+    //   handler();
+    // }
+    // $("air-input").onkeyup = function (event){
+    //   if (event.keyCode == 13){
+    //     handler();
+    //   }
+    // }
+    </script>
+
+  </body>
+</html>
